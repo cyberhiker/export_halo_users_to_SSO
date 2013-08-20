@@ -13,6 +13,7 @@ host = 'api.cloudpassage.com'
 client = OAuth2::Client.new(clientid, clientsecret,
                 :site => "https://#{host}",
                 :token_url => '/oauth/access_token')
+
 token = client.client_credentials.get_token.token
 
 # grab all users from Halo

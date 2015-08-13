@@ -12,7 +12,7 @@ host = 'api.cloudpassage.com'
 # setup a API session
 client = OAuth2::Client.new(clientid, clientsecret,
                 :site => "https://#{host}",
-                :token_url => '/oauth/access_token')
+                :token_url => '/oauth/access_token?grant_type=client_credentials')
 
 token = client.client_credentials.get_token.token
 
@@ -31,7 +31,7 @@ CSV.open('halo_user_import.csv', 'w') do |csv|
     csv << [user['firstname'], user['lastname'], user['email'], user['username']]
   end
 end
-  
+
 # output the file for quick review/validation
 File.readlines('halo_user_import.csv').each do |line|
 end
